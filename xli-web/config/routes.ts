@@ -12,52 +12,68 @@
  */
 export default [
   {
-    path: '/user',
-    layout: false,
+    path: '/frame',
+    name: 'frame',
     routes: [
       {
-        name: 'login',
-        path: '/user/login',
-        component: './User/Login',
-      },
-    ],
-  },
-  {
-    path: '/welcome',
-    name: 'welcome',
-    icon: 'smile',
-    component: './Welcome',
-  },
-  {
-    path: '/admin',
-    name: 'admin',
-    icon: 'crown',
-    access: 'canAdmin',
-    routes: [
-      {
-        path: '/admin',
-        redirect: '/admin/sub-page',
+        path: 'ui',
+        name: 'ui',
+        routes: [
+          {
+            path: 'menu',
+            name: 'menu',
+            component: './frame/ui/menu/RouterList'
+          }
+        ]
       },
       {
-        path: '/admin/sub-page',
-        name: 'sub-page',
-        component: './Admin',
+        path: 'soa',
+        name: 'soa',
+        routes: [
+          {
+            path: 'ou',
+            name: 'ou',
+            component: './frame/soa/ou/OuList'
+          },
+          {
+            path: 'user',
+            name: 'user',
+            component: './frame/soa/user/UserList'
+          },
+          {
+            path: 'role',
+            name: 'role',
+            component: './frame/soa/role/RoleList'
+          }
+        ]
       },
-    ],
-  },
-  {
-    name: 'list.table-list',
-    icon: 'table',
-    path: '/list',
-    component: './TableList',
-  },
-  {
-    path: '/',
-    redirect: '/welcome',
-  },
-  {
-    path: '*',
-    layout: false,
-    component: './404',
-  },
+      {
+        path: 'mis',
+        name: 'mis',
+        routes: [
+          {
+            path: 'table-basic',
+            name: 'table-basic',
+            component: './frame/mis/TableBasicList'
+          }
+        ]
+      },
+      {
+        path: 'metadata',
+        name: 'metadata',
+        routes: [
+          {
+            path: 'frame-config',
+            name: 'frame-config',
+            component: './frame/metadata/FrameConfigList'
+          },
+          {
+            path: 'code-main',
+            name: 'code-main',
+            component: './frame/metadata/CodeMainList'
+          }
+        ]
+      }
+    ]
+  }
 ];
