@@ -20,6 +20,11 @@ export default [
         name: 'ui',
         routes: [
           {
+            path: 'user-center',
+            name: 'user-center',
+            component: './frame/ui/menu/RouterList'
+          },
+          {
             path: 'menu',
             name: 'menu',
             component: './frame/ui/menu/RouterList'
@@ -30,6 +35,21 @@ export default [
         path: 'soa',
         name: 'soa',
         routes: [
+          {
+            path: 'module',
+            name: 'module',
+            routes: [
+              {
+                path: 'module',
+                name: 'module',
+                component: './frame/soa/module/ModuleList'
+              }, {
+                path: 'permission',
+                name: 'permission',
+                component: './frame/soa/module/ModuleList'
+              }
+            ]
+          },
           {
             path: 'ou',
             name: 'ou',
@@ -43,7 +63,17 @@ export default [
           {
             path: 'role',
             name: 'role',
-            component: './frame/soa/role/RoleList'
+            routes: [
+              {
+                path: 'category',
+                name: 'category',
+                component: './frame/soa/module/ModuleList'
+              }, {
+                path: 'role',
+                name: 'role',
+                component: './frame/soa/role/RoleList'
+              }
+            ]
           }
         ]
       },
@@ -51,6 +81,16 @@ export default [
         path: 'mis',
         name: 'mis',
         routes: [
+          {
+            path: 'datasource',
+            name: 'datasource',
+            component: './frame/mis/TableBasicList'
+          },
+          {
+            path: 'sub-system',
+            name: 'sub-system',
+            component: './frame/mis/TableBasicList'
+          },
           {
             path: 'table-basic',
             name: 'table-basic',
